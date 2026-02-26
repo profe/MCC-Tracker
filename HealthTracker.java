@@ -16,9 +16,23 @@ public class HealthTracker {
         boolean isValid = this.setWeight(weight) && this.setHeight(height);
         if (!isValid) {
             // handle error
-            System.out.println("ERROR: bad data given to full constructor");
+            System.out.println("ERROR: bad data given to constructor");
             System.exit(0);
         }
+    }
+
+    public HealthTracker() {
+        this(DEFAULT_WEIGHT, DEFAULT_HEIGHT);
+    }
+
+    public HealthTracker(HealthTracker original) {
+        if (original == null) {
+            // handle error
+            System.out.println("ERROR: null given to copy constructor");
+            System.exit(0);
+        }
+        this.weight = original.weight;
+        this.height = original.height;
     }
 
     // mutators
@@ -66,5 +80,23 @@ public class HealthTracker {
     public String toString() {
         return "HealthTracker: weight = " + this.weight +
                 ", height = " + this.height;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // null
+        if (other == null) {
+            return false;
+        } else if (!(other instanceof HealthTracker)) {// "same" type
+            // different type
+            return false;
+
+        } else {
+            // exists AND "same type"
+            // check all the data
+            HealthTracker otherTracker = (HealthTracker) other;
+            return this.height == otherTracker.height && this.weight == otherTracker.weight;
+        }
+
     }
 }

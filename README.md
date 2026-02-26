@@ -25,20 +25,18 @@ classDiagram
    }
 
    class HealthTracker {
-       + DEFAULT_WEIGHT : double = 0.0$
-       + DEFAULT_HEIGHT : double = 0.0$
+       + DEFAULT_WEIGHT : double = 100.0$
+       + DEFAULT_HEIGHT : int = 100$
        - weight : double
-       - height : double
-       - bmi : double
+       - height : int
        + HealthTracker()
-       + HealthTracker(weight : double, height : double)
+       + HealthTracker(weight : double, height : int)
        + HealthTracker(other : HealthTracker)
        + getWeight() : double
        + setWeight(weight : double) : void
-       + getHeight() : double
-       + setHeight(height : double) : void
-       + getBmi() : double
-       - calculateBmi() : void
+       + getHeightInInches() : int
+       + getHeight() : String
+       + setHeight(height : int) : void
        + equals(obj : Object) : boolean
        + toString() : String
    }
