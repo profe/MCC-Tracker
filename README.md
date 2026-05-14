@@ -45,7 +45,6 @@ classDiagram
        + printEncouragingMessage() : void*
    }
 
-
    class WorkoutTracker {
        + DEFAULT_WORKOUT : String = "General"$
        + DEFAULT_REPS : int = 0$
@@ -69,7 +68,6 @@ classDiagram
        + equals(obj : Object) : boolean
        + toString() : String
    }
-
 
    class edu.miracosta.cs112.models.DietTracker {
        + DEFAULT_FOOD : String = "Water"$
@@ -100,22 +98,52 @@ classDiagram
    }
 
    class edu.miracosta.cs112.models.PomodoroTimer {
-   - workDuration : int
-   - breakDuration : int 
-   - remainingTime : int 
-   - sessionCount : int
-   - volume : int
-   - isRunning : boolean
-   - workSession : boolean
-   - progress : double
-   - alarmSound : String
-   }
-   
-class edu.miracosta.cs112.UnitMismatchException {
-      + edu.miracosta.cs112.UnitMismatchException()
-      + edu.miracosta.cs112.UnitMismatchException(expected : String)
+       - workDuration : int
+       - breakDuration : int
+       - remainingTime : int
+       - sessionCount : int
+       - volume : int
+       - isRunning : boolean
+       - workSession : boolean
+       - progress : double
+       - alarmSound : String
    }
 
+   class edu.miracosta.cs112.UnitMismatchException {
+       + edu.miracosta.cs112.UnitMismatchException()
+       + edu.miracosta.cs112.UnitMismatchException(expected : String)
+   }
+
+   class HWTracker {
+       + DEFAULT_COURSE : String = "Unknown Course"$
+       + DEFAULT_TITLE : String = "Untitled Assignment"$
+       + DEFAULT_DUE_DATE : String = "TBD"$
+       + DEFAULT_POINTS : int = 0$
+       + DEFAULT_PRIORITY : String = "Medium"$
+       - course : String
+       - title : String
+       - dueDate : String
+       - points : int
+       - submitted : boolean
+       - priority : String
+       + HWTracker()
+       + HWTracker(course : String, title : String)
+       + HWTracker(course : String, title : String, dueDate : String, points : int, submitted : boolean)
+       + getCourse() : String
+       + getTitle() : String
+       + getDueDate() : String
+       + getPoints() : int
+       + isSubmitted() : boolean
+       + getPriority() : String
+       + setCourse(course : String) : void
+       + setTitle(title : String) : void
+       + setDueDate(dueDate : String) : void
+       + setPoints(points : int) : void
+       + setSubmitted(submitted : boolean) : void
+       + setPriority(priority : String) : void
+       + equals(obj : Object) : boolean
+       + toString() : String
+   }
 
    edu.miracosta.cs112.models.HealthTracker <|-- WorkoutTracker : extends
    edu.miracosta.cs112.models.HealthTracker <|-- edu.miracosta.cs112.models.DietTracker : extends

@@ -1,14 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.miracosta.cs112.controllers.HomeworkTrackerController"
-            prefHeight="400.0" prefWidth="600.0">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.miracosta.cs112.controllers.HomeworkTrackerController"
+      prefHeight="500.0" prefWidth="700.0" spacing="10"
+      style="-fx-background-color: #f7f8fa; -fx-padding: 20;">
+
+    <!-- Header -->
+    <Label text="Homework Tracker"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1a202c;"/>
+    <Label text="Track and submit assignments"
+           style="-fx-font-size: 12px; -fx-text-fill: #718096;"/>
+
+    <!-- Stats cards -->
+    <HBox spacing="10">
+        <Label fx:id="totalLabel" text="0  Total"
+               style="-fx-padding: 6 14 6 14; -fx-background-color: white;
+                      -fx-border-color: #3498db; -fx-border-radius: 6;
+                      -fx-background-radius: 6; -fx-font-weight: bold;
+                      -fx-text-fill: #3498db; -fx-font-size: 12px;"/>
+        <Label fx:id="pendingLabel" text="0  Pending"
+               style="-fx-padding: 6 14 6 14; -fx-background-color: white;
+                      -fx-border-color: #e67e22; -fx-border-radius: 6;
+                      -fx-background-radius: 6; -fx-font-weight: bold;
+                      -fx-text-fill: #e67e22; -fx-font-size: 12px;"/>
+        <Label fx:id="doneLabel" text="0  Done"
+               style="-fx-padding: 6 14 6 14; -fx-background-color: white;
+                      -fx-border-color: #27ae60; -fx-border-radius: 6;
+                      -fx-background-radius: 6; -fx-font-weight: bold;
+                      -fx-text-fill: #27ae60; -fx-font-size: 12px;"/>
+    </HBox>
+
+    <!-- Buttons -->
+    <HBox spacing="8">
+        <Button text="Add Assignment" onAction="#handleAddClass"
+                style="-fx-background-color: #3498db; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-background-radius: 6;
+                       -fx-padding: 7 16 7 16; -fx-font-size: 12px;"/>
+        <Button text="Delete" onAction="#handleDeleteClass"
+                style="-fx-background-color: #e8e8e8; -fx-text-fill: #4a5568;
+                       -fx-background-radius: 6; -fx-padding: 7 16 7 16;
+                       -fx-font-size: 12px;"/>
+        <Button text="Mark All Done" onAction="#handleMarkAllDone"
+                style="-fx-background-color: #e8e8e8; -fx-text-fill: #4a5568;
+                       -fx-background-radius: 6; -fx-padding: 7 16 7 16;
+                       -fx-font-size: 12px;"/>
+    </HBox>
+
+    <!-- Search + Filter -->
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField"
+                   promptText="Search assignments..."
+                   prefWidth="240"
+                   style="-fx-background-radius: 6; -fx-border-radius: 6;
+                          -fx-border-color: #cbd5e0; -fx-padding: 6;"/>
+        <ChoiceBox fx:id="filterBox" prefWidth="140"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="assignmentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="assignmentColumn" text="Assignment" prefWidth="160"/>
+            <TableColumn fx:id="classColumn"      text="Class"      prefWidth="110"/>
+            <TableColumn fx:id="dueDateColumn"    text="Due Date"   prefWidth="100"/>
+            <TableColumn fx:id="priorityColumn"   text="Priority"   prefWidth="110"/>
+            <TableColumn fx:id="statusColumn"     text="Status"     prefWidth="100"/>
+        </columns>
+        <placeholder>
+            <VBox alignment="CENTER" spacing="8">
+                <Label text="No assignments yet"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #a0aec0;"/>
+                <Label text="Add your first assignment to stay organized."
+                       style="-fx-font-size: 12px; -fx-text-fill: #cbd5e0;"/>
+            </VBox>
+        </placeholder>
+    </TableView>
 
 </VBox>
