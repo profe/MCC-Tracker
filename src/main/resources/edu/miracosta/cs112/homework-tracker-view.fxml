@@ -1,14 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.miracosta.cs112.controllers.HomeworkTrackerController"
-            prefHeight="400.0" prefWidth="600.0">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.miracosta.cs112.controllers.HomeworkTrackerController"
+      prefHeight="700.0" prefWidth="620.0" spacing="0"
+      style="-fx-background-color: white; -fx-padding: 28;">
+
+
+   <Label text="HOMEWORK TRACKER"
+          maxWidth="Infinity"
+          alignment="CENTER"
+          style="
+                 -fx-font-size: 22px;
+                 -fx-font-weight: bold;
+                 -fx-text-fill: black;
+                 -fx-underline: true;
+                 -fx-padding: 0 0 14 0;"/>
+
+
+   <HBox spacing="8" alignment="CENTER_LEFT"
+         style="-fx-padding: 0 0 10 0;">
+
+      <Button text="Add Homework"
+              onAction="#handleAddClass"
+              style="
+                     -fx-font-size: 11px;
+                     -fx-font-weight: bold;
+                     -fx-background-color: black;
+                     -fx-text-fill: white;
+                     -fx-background-radius: 4;
+                     -fx-padding: 6 14 6 14;
+                     -fx-cursor: hand;"/>
+
+      <Button text="Delete"
+              onAction="#handleDeleteClass"
+              style="
+                     -fx-font-size: 11px;
+                     -fx-background-color: white;
+                     -fx-text-fill: black;
+                     -fx-border-color: black;
+                     -fx-border-width: 1;
+                     -fx-background-radius: 4;
+                     -fx-border-radius: 4;
+                     -fx-padding: 6 14 6 14;
+                     -fx-cursor: hand;"/>
+
+      <Button text="Mark All Done"
+              onAction="#handleMarkAllDone"
+              style="
+                     -fx-font-size: 11px;
+                     -fx-background-color: white;
+                     -fx-text-fill: black;
+                     -fx-border-color: black;
+                     -fx-border-width: 1;
+                     -fx-background-radius: 4;
+                     -fx-border-radius: 4;
+                     -fx-padding: 6 14 6 14;
+                     -fx-cursor: hand;"/>
+
+   </HBox>
+
+
+   <TableView fx:id="assignmentTable"
+              VBox.vgrow="ALWAYS"
+              style="-fx-background-color: white;
+                     -fx-border-color: black;
+                     -fx-border-width: 2;
+                     -fx-table-cell-border-color: black;">
+
+      <columns>
+
+
+         <TableColumn fx:id="dateColumn"
+                      text="DATE"
+                      prefWidth="72"
+                      resizable="false"
+                      style="-fx-alignment: CENTER;
+
+                             -fx-font-weight: bold;
+                             -fx-font-size: 11px;"/>
+
+
+         <TableColumn fx:id="classColumn"
+                      text="CLASS"
+                      prefWidth="88"
+                      resizable="false"
+                      style="-fx-alignment: CENTER;
+
+                             -fx-font-weight: bold;
+                             -fx-font-size: 11px;"/>
+
+
+         <TableColumn fx:id="assignmentColumn"
+                      text="HOMEWORK"
+                      prefWidth="188"
+                      resizable="false"
+                      style="-fx-alignment: CENTER;
+
+                             -fx-font-weight: bold;
+                             -fx-font-size: 11px;"/>
+
+
+         <TableColumn fx:id="dueDateColumn"
+                      text="DUE DATE"
+                      prefWidth="96"
+                      resizable="false"
+                      style="-fx-alignment: CENTER;
+
+                             -fx-font-weight: bold;
+                             -fx-font-size: 11px;"/>
+
+
+         <TableColumn fx:id="doneColumn"
+                      text="DONE"
+                      prefWidth="52"
+                      resizable="false"
+                      style="-fx-alignment: CENTER;
+
+                             -fx-font-weight: bold;
+                             -fx-font-size: 11px;"/>
+
+
+         <TableColumn fx:id="gradeColumn"
+                      text="GRADE"
+                      prefWidth="60"
+                      resizable="false"
+                      style="-fx-alignment: CENTER;
+
+                             -fx-font-weight: bold;
+                             -fx-font-size: 11px;"/>
+
+         <TableColumn fx:id="notesColumn"
+                      text="NOTES"
+                      prefWidth="180"
+                      resizable="false"
+                      style="-fx-alignment: CENTER-LEFT;
+                    -fx-font-weight: bold;
+                    -fx-font-size: 11px;"/>
+
+      </columns>
+
+      <placeholder>
+
+         <Label text="" style="-fx-background-color: white;"/>
+      </placeholder>
+
+   </TableView>
+
 
 </VBox>

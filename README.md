@@ -116,6 +116,48 @@ class edu.miracosta.cs112.UnitMismatchException {
       + edu.miracosta.cs112.UnitMismatchException(expected : String)
    }
 
+class HWTracker {
+    + DEFAULT_COURSE : String = "Unknown Course"$
+    + DEFAULT_TITLE : String = "Untitled Assignment"$
+    + DEFAULT_DUE_DATE : String = "TBD"$
+    + DEFAULT_DATE : String = "TBD"$
+    + DEFAULT_GRADE : String = ""$
+    - date : String
+    - course : String
+    - title : String
+    - dueDate : String
+    - grade : String
+    - submitted : boolean
+    - notes : List~Note~
+    + HWTracker()
+    + HWTracker(course : String, title : String, dueDate : String, submitted : boolean)
+    + getDate() : String
+    + getCourse() : String
+    + getTitle() : String
+    + getDueDate() : String
+    + getGrade() : String
+    + isSubmitted() : boolean
+    + addNote(content : String) : void
+    + getNotes() : List~Note~
+    + setDate(date : String) : void
+    + setCourse(course : String) : void
+    + setTitle(title : String) : void
+    + setDueDate(dueDate : String) : void
+    + setGrade(grade : String) : void
+    + setSubmitted(submitted : boolean) : void
+    + equals(obj : Object) : boolean
+    + toString() : String
+}
+
+class HWTracker.Note {
+    - content : String
+    - timestamp : String
+    + Note(content : String)
+    + getContent() : String
+    + toString() : String
+}
+
+
 
    edu.miracosta.cs112.models.HealthTracker <|-- WorkoutTracker : extends
    edu.miracosta.cs112.models.HealthTracker <|-- edu.miracosta.cs112.models.DietTracker : extends
