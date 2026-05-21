@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.miracosta.cs112.controllers.MainController">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.miracosta.cs112.controllers.MainController">
+
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-     <tabs>
-         <Tab text="Home">
-             <content>
-                 <fx:include source="home-view.fxml" />
-             </content>
-         </Tab>
-       <Tab text="Diet Tracker">
-         <content>
-             <fx:include source="diet-tracker-view.fxml" />
-         </content>
-       </Tab>
-       <Tab text="Weight Tracker">
-         <content>
-             <fx:include source="weight-tracker-view.fxml" />
-         </content>
-       </Tab>
-         <Tab text="Homework Tracker">
-             <content>
-                 <fx:include source="homework-tracker-view.fxml" />
-             </content>
-         </Tab>
-         <Tab text="Pomodoro Timer">
-             <content>
-                 <fx:include source="pomodoro-timer-view.fxml" />
-             </content>
-         </Tab>
-         <Tab text="Break Time">
-             <content>
-                 <fx:include source="break-time-view.fxml" />
-             </content>
-         </Tab>
-     </tabs>
-   </TabPane>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+
+            <Tab text="Home" >
+                <content>
+                    <fx:include source="home-view.fxml" />
+                </content>
+            </Tab>
+
+            <Tab fx:id="dietTrackerTab" text="Diet Tracker" disable="true">
+                <content>
+                    <fx:include source="diet-tracker-view.fxml" />
+                </content>
+            </Tab>
+
+            <Tab fx:id="weightTrackerTab" text="Weight Tracker" disable="true">
+                <content>
+                    <fx:include source="weight-tracker-view.fxml" />
+                </content>
+            </Tab>
+
+            <Tab fx:id="homeworkTrackerTab" text="Homework Tracker" disable="true">
+                <content>
+                    <fx:include source="homework-tracker-view.fxml" />
+                </content>
+            </Tab>
+
+            <Tab fx:id="pomodoroTimerTab" text="Pomodoro Timer" disable="true">
+                <content>
+                    <fx:include source="pomodoro-timer-view.fxml" />
+                </content>
+            </Tab>
+
+            <Tab fx:id="breakTimerTab" text="Break Time" disable="true">
+                <content>
+                    <fx:include source="break-time-view.fxml" />
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
 </VBox>
+
