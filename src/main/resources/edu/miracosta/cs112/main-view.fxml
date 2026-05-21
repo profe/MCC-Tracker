@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.miracosta.cs112.controllers.MainController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.miracosta.cs112.controllers.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -15,31 +20,73 @@
              <content>
                  <fx:include source="home-view.fxml" />
              </content>
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../icons/homeIcon.png" />
+                  </image>
+               </ImageView>
+            </graphic>
          </Tab>
-       <Tab text="Diet Tracker">
+       <Tab text="Stock">
          <content>
              <fx:include source="diet-tracker-view.fxml" />
          </content>
+            <graphic>
+               <ImageView fitHeight="37.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../icons/stock.png" />
+                  </image>
+               </ImageView>
+            </graphic>
        </Tab>
-       <Tab text="Weight Tracker">
+       <Tab text="Excersise">
          <content>
              <fx:include source="weight-tracker-view.fxml" />
          </content>
+            <graphic>
+               <ImageView fitHeight="21.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../icons/excersiveIcon.png" />
+                  </image>
+               </ImageView>
+            </graphic>
        </Tab>
-         <Tab text="Homework Tracker">
+         <Tab text="Homework">
              <content>
                  <fx:include source="homework-tracker-view.fxml" />
              </content>
+            <graphic>
+               <ImageView fitHeight="23.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../icons/homeworkIcon.png" />
+                  </image>
+               </ImageView>
+            </graphic>
          </Tab>
-         <Tab text="Pomodoro Timer">
+         <Tab text="Timer">
              <content>
                  <fx:include source="pomodoro-timer-view.fxml" />
              </content>
+            <graphic>
+               <ImageView fitHeight="24.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../icons/Pomodoro.png" />
+                  </image>
+               </ImageView>
+            </graphic>
          </Tab>
          <Tab text="Break Time">
              <content>
                  <fx:include source="break-time-view.fxml" />
              </content>
+            <graphic>
+               <ImageView fitHeight="26.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../icons/breakIcon.png" />
+                  </image>
+               </ImageView>
+            </graphic>
          </Tab>
      </tabs>
    </TabPane>
