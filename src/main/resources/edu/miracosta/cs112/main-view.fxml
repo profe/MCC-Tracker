@@ -9,6 +9,11 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+   <Label text="MCC Workout Tracker">
+      <font>
+         <Font size="28.0" />
+      </font>
+   </Label>
    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
      <tabs>
          <Tab text="Home">
@@ -21,6 +26,11 @@
              <fx:include source="diet-tracker-view.fxml" />
          </content>
        </Tab>
+         <Tab text="Workout Tracker">
+             <content>
+                 <fx:include source="workout-main-view.fxml" />
+             </content>
+         </Tab>
        <Tab text="Weight Tracker">
          <content>
              <fx:include source="weight-tracker-view.fxml" />

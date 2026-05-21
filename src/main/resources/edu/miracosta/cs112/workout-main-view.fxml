@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="850.0" prefWidth="950.0"
+            style="-fx-background-color: white; -fx-border-color: #444444; -fx-border-width: 1;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.miracosta.cs112.controllers.WorkoutMainController">
+
+    <top>
+        <VBox alignment="CENTER" spacing="10.0">
+            <padding>
+                <Insets top="15.0" right="20.0" bottom="15.0" left="20.0" />
+            </padding>
+
+            <children>
+                <Label text="Fitness Tracker" textFill="#444444">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+
+                <Separator prefWidth="760.0" />
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="25.0" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="30.0" right="30.0" bottom="20.0" left="30.0" />
+            </padding>
+
+            <children>
+                <HBox spacing="40.0" alignment="TOP_CENTER" fillHeight="true">
+                    <children>
+
+                        <VBox spacing="22.0" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+
+                                <Label text="Add Information" textFill="#444444">
+                                    <font>
+                                        <Font size="36.0" />
+                                    </font>
+                                </Label>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label text="Name:" prefWidth="120.0" textFill="#444444">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                        </Label>
+
+                                        <TextField fx:id="nameField" prefHeight="42.0" prefWidth="220.0" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label text="Weight:" prefWidth="120.0" textFill="#444444">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                        </Label>
+
+                                        <TextField fx:id="weightField" prefHeight="42.0" prefWidth="220.0" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label text="Height:" prefWidth="120.0" textFill="#444444">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                        </Label>
+
+                                        <TextField fx:id="heightField" prefHeight="42.0" prefWidth="220.0" />
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label text="Age:" prefWidth="120.0" textFill="#444444">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                        </Label>
+
+                                        <TextField fx:id="ageField" prefHeight="42.0" prefWidth="220.0" />
+                                    </children>
+                                </HBox>
+
+                                <Button fx:id="saveInfoButton"
+                                        onAction="#saveUserInformation"
+                                        prefHeight="45.0"
+                                        prefWidth="220.0"
+                                        style="-fx-background-color: #444444; -fx-background-radius: 8; -fx-font-size: 20;"
+                                        text="Save Information"
+                                        textFill="white" />
+
+                            </children>
+                        </VBox>
+
+                        <Separator orientation="VERTICAL" prefHeight="360.0" />
+
+                        <VBox spacing="28.0" alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+                            <children>
+
+                                <Label text="Fitness Goal" textFill="#444444">
+                                    <font>
+                                        <Font size="36.0" />
+                                    </font>
+                                </Label>
+
+                                <Button onAction="#openLoseWeightScreen"
+                                        prefHeight="65.0"
+                                        prefWidth="260.0"
+                                        style="-fx-background-color: #444444; -fx-background-radius: 8; -fx-font-size: 26;"
+                                        text="Lose Weight"
+                                        textFill="white" />
+
+                                <Button onAction="#openStayActiveScreen"
+                                        prefHeight="65.0"
+                                        prefWidth="260.0"
+                                        style="-fx-background-color: #444444; -fx-background-radius: 8; -fx-font-size: 26;"
+                                        text="Stay Active"
+                                        textFill="white" />
+
+                                <Button onAction="#openBuildMuscleScreen"
+                                        prefHeight="65.0"
+                                        prefWidth="260.0"
+                                        style="-fx-background-color: #444444; -fx-background-radius: 8; -fx-font-size: 26;"
+                                        text="Build Muscle"
+                                        textFill="white" />
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </HBox>
+
+                <Separator prefWidth="860.0" />
+
+                <VBox alignment="CENTER" spacing="12.0"
+                      style="-fx-background-color: #f5f5f5; -fx-background-radius: 12; -fx-padding: 18;">
+                    <children>
+                        <Label text="Fitness Dashboard" textFill="#444444">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Label>
+
+                        <Label fx:id="welcomeLabel" text="Welcome! Save your information to begin." textFill="#444444">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+
+                        <HBox alignment="CENTER" spacing="35.0">
+                            <children>
+                                <VBox alignment="CENTER" spacing="8.0">
+                                    <children>
+                                        <Label text="Weekly Progress" textFill="#444444">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <ProgressBar fx:id="progressBar" prefWidth="220.0" progress="0.0" />
+
+                                        <Label fx:id="progressLabel" text="0% Complete" textFill="#444444">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+
+                                <VBox alignment="CENTER" spacing="8.0">
+                                    <children>
+                                        <Label text="BMI Result" textFill="#444444">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <Label fx:id="bmiResultLabel" text="Enter height and weight" textFill="#444444">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Label>
+
+                                        <Label fx:id="recommendationLabel" text="Recommendation will appear here" textFill="#444444">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+
+                                <VBox alignment="CENTER" spacing="8.0">
+                                    <children>
+                                        <Label text="Workout History" textFill="#444444">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+
+                                        <ListView fx:id="historyListView" prefHeight="110.0" prefWidth="230.0" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+
+</BorderPane>

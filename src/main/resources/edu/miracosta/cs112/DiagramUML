@@ -1,0 +1,99 @@
+classDiagram
+
+class UserProfile {
+  -String name
+  -int age
+  -double weight
+  -double height
+  -String goal
+  -WorkoutTracker workout1
+  -WorkoutTracker workout2
+  -WorkoutTracker workout3
+  -DietTracker dietTracker
+
+  +UserProfile()
+  +UserProfile(String, int, double, double, String, DietTracker)
+  +UserProfile(String, double, double, int)
+  +UserProfile(UserProfile)
+  +getName() String
+  +getAge() int
+  +getWeight() double
+  +getHeight() double
+  +getGoal() String
+  +setName(String) boolean
+  +setAge(int) boolean
+  +setWeight(double) boolean
+  +setHeight(double) boolean
+  +setGoal(String) boolean
+  +equals(Object) boolean
+  +toString() String
+}
+
+class WorkoutTracker {
+  -String workoutName
+  -String workoutImageName
+
+  +WorkoutTracker()
+  +WorkoutTracker(String, String)
+  +WorkoutTracker(WorkoutTracker)
+  +getWorkoutName() String
+  +getWorkoutImageName() String
+  +setWorkoutName(String) boolean
+  +setWorkoutImageName(String) boolean
+  +getWorkoutSummary() String
+  +equals(Object) boolean
+  +toString() String
+}
+
+class DietTracker {
+  // Diet tracking model class
+}
+
+class WorkoutMainController {
+  -TextField nameField
+  -TextField weightField
+  -TextField heightField
+  -TextField ageField
+  -ProgressBar progressBar
+  -Label progressLabel
+  -Label bmiResultLabel
+  -Label recommendationLabel
+  -Label welcomeLabel
+  -ListView historyListView
+  -UserProfile userProfile
+  -WorkoutTracker workout1
+  -WorkoutTracker workout2
+  -WorkoutTracker workout3
+
+  +saveUserInformation() void
+  -updateBMI(double, double) void
+  -updateProgress() void
+  -updateWorkoutHistory(String) void
+  +openLoseWeightScreen(ActionEvent) void
+  +openStayActiveScreen(ActionEvent) void
+  +openBuildMuscleScreen(ActionEvent) void
+  -openWorkoutScreen(ActionEvent) void
+}
+
+class WorkoutController {
+  -Label titleLabel
+  -Label workout1Label
+  -Label workout2Label
+  -Label workout3Label
+  -ImageView image1
+  -ImageView image2
+  -ImageView image3
+  -TextArea tipArea
+
+  +setWorkoutPlan(String, WorkoutTracker, WorkoutTracker, WorkoutTracker) void
+  -setWorkoutImages(String, String, String) void
+  -setImageSafely(ImageView, String) void
+  +goBackToMainMenu(ActionEvent) void
+}
+
+UserProfile "1" --> "3" WorkoutTracker : stores workouts
+UserProfile "1" --> "1" DietTracker : has
+WorkoutMainController --> UserProfile : creates
+WorkoutMainController --> WorkoutTracker : creates
+WorkoutMainController --> WorkoutController : sends workout data
+WorkoutController --> WorkoutTracker : displays

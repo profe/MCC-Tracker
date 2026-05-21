@@ -35,7 +35,7 @@ public class HomeController {
             return;
         }
 
-        userProfile = new UserProfile(name, age, goal, new DietTracker());
+        userProfile = new UserProfile(name, age, 0.0, 0.0, goal, new DietTracker());
         profileLabel.setText("Profile created: " + userProfile.getName() + ", Age: " + userProfile.getAge() + ", Goal: " + userProfile.getGoal());
     }
 }
